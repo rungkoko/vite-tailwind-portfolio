@@ -2,13 +2,6 @@ import React, { useRef } from "react";
 import my2 from "/src/images/profile.jpg";
 import Type from "./Type";
 
-const socialMediaLinks = [
-  "https://www.instagram.com/_aaaryaan__/",
-  "https://github.com/aryyan0701",
-  "https://www.linkedin.com/in/aryan-kadam-568083204/",
-  "https://twitter.com/aaryyan_",
-];
-
 const Hero = () => {
   const contactRef = useRef(null);
 
@@ -19,7 +12,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex py-5 md:py-10 md:flex-row flex-col items-center justify-center -mb-[550px] md:-mb-[150px]"
+      className="min-h-screen flex py-5 md:py-10 md:flex-row flex-col items-center justify-center"
     >
       <div className="flex-1 flex flex-col items-center text-center md:text-left">
         <div className="relative flex flex-col items-center md:items-start">
