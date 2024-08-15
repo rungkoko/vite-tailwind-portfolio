@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import my2 from "/src/images/435266867_2212125212485152_8945768942018293214_n.jpg";
+import my2 from "/src/images/profile.jpg";
 import Type from "./Type";
 
 const socialMediaLinks = [
@@ -30,20 +30,25 @@ const Hero = () => {
     >
       <div className="flex-1 flex flex-col items-center text-center md:text-left">
         <div className="relative flex flex-col items-center md:items-start">
-          <h1 className="md:text-4xl text-2xl md:leading-normal leading-10 text-white font-bold">
-            <span className="text-cyan-600 md:text-6xl text-5xl block">
+        <h1 className="md:text-4xl text-2xl md:leading-normal leading-10 text-white font-bold pt-[60px] md:pt-0">
+          <span className="text-cyan-600 md:text-6xl text-5xl block">
+            Hello!
             <br />
-              Hello!
-              <br />
-            </span>
-            <span className="block"><Type /><br /></span>
-          </h1>
-          <div className="flex-1 flex items-center justify-center mt-6 md:mt-0 w-full">
-            <img
-              src={my2}
-              alt=""
-              className="w-full max-w-xs md:max-w-sm lg:max-w-md h-48 md:h-80 lg:h-80 object-cover rounded-full md:rounded-none"
-            />
+          </span>
+          <span className="block"><Type /><br /></span>
+        </h1>
+
+          <div className="w-full flex items-center justify-center mt-6 md:mt-0">
+          <div className="flex items-center justify-center w-full">
+  <div className="w-[150px] h-[150px] md:w-[200px] md:h-[200px] lg:w-[300px] lg:h-[300px] flex-shrink-0">
+    <img
+      src={my2}
+      alt=""
+      className="object-cover w-full h-full rounded-full md:rounded-none"
+    />
+  </div>
+</div>
+
           </div>
           <div className="mt-8 text-3xl flex items-center justify-center gap-5">
             {social_media?.map((icon, index) => (
