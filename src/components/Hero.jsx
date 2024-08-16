@@ -27,7 +27,7 @@ const Hero = () => {
 
           <div className="w-full flex items-center justify-center mt-4 md:mt-0">
             <div className="flex items-center justify-center w-full">
-              <div className="w-[150px] h-[150px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px] flex-shrink-0">
+              <div className="w-[150px] h-[150px] md:w-[250px] md:h-[250px] lg:w-[280px] lg:h-[280px] flex-shrink-0">
                 <img
                   src={my2}
                   alt=""
