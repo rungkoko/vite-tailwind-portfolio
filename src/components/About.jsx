@@ -13,7 +13,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 mt-[-200px] text-white">
+    <section id="about" className="flex py-2 md:py-5 md:flex-row flex-col items-center justify-center">
       <div className="text-center mt-8">
         <h3 className="text-4xl font-semibold">
           About <span className="text-cyan-600">Me</span>

@@ -12,7 +12,8 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex py-5 md:py-10 md:flex-row flex-col items-center justify-center"
+      className="flex py-2 md:py-5 md:flex-row flex-col items-center justify-center"
+      style={{ paddingTop: '80px' }} // Adjust padding here
     >
       <div className="flex-1 flex flex-col items-center text-center md:text-left">
         <div className="relative flex flex-col items-center md:items-start">
