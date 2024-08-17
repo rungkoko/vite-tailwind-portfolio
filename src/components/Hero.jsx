@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import my2 from "/src/images/profile.jpg";
 import Type from "./Type";
 
-const Hero = () => {
+const Hero = ({ language }) => {
   const contactRef = useRef(null);
 
   const scrollToContact = () => {
@@ -19,10 +19,10 @@ const Hero = () => {
         <div className="relative flex flex-col items-center md:items-start">
           <h1 className="md:text-4xl text-2xl md:leading-normal leading-10 text-white font-bold pt-[60px] md:pt-0">
             <span className="text-cyan-600 md:text-6xl text-5xl block">
-              Hello!
+              {language === 'en' ? 'Hello!' : 'สวัสดี!'}
               <br />
             </span>
-            <span className="block"><Type /><br /></span>
+            <span className="block"><Type language={language} /><br /></span>
           </h1>
 
           <div className="w-full flex items-center justify-center mt-4 md:mt-0">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import { FaTimesCircle } from "react-icons/fa";
 import {
@@ -6,8 +6,10 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import jobExperiences from "../constants/jobExperiences.json";
-import nonDevExperiences from "../constants/nonDevExperience.json";
+import jobExperiencesEn from "../constants/jobExperiences.json"; // English
+import jobExperiencesTh from "../constants/jobExperiences_th.json"; // Thai
+import nonDevExperiencesEn from "../constants/nonDevExperience.json"; // English
+import nonDevExperiencesTh from "../constants/nonDevExperience_th.json"; // Thai
 
 const JobExperienceCard = ({ experience, onClick }) => (
   <VerticalTimelineElement
@@ -21,14 +23,8 @@ const JobExperienceCard = ({ experience, onClick }) => (
     contentStyle={{ position: "relative", backgroundColor:"#1f2a40"}}
     date={<span className="text-darkDesert">{experience.timePeriod}</span>}
   >
-    {/* <img
-      src={experience.img}
-      alt={experience.title}
-      className=" hidden md:block h-14 w-auto rounded-full absolute top-0 right-0 mt-2 mr-2"
-    /> */}
     <h3 className="text-2xl font-bold text-darkDesert">{experience.title}</h3>
     <p className="text-xl text-darkDesert italic mb-4">{experience.company}</p>
-    {/* <p className="text-darkDesert">{experience.description}</p> */}
     <div className="flex justify-between items-center">
       <button
         className="text-darkDesert font-bold hover:text-goldDesert"
@@ -52,20 +48,6 @@ const NonDevExperienceCard = ({ experience, onClick }) => (
     contentStyle={{ position: "relative", backgroundColor:"#1c2028" }}
     date={<span className="text-darkDesert">{experience.timePeriod}</span>}
   >
-    {/* <div className="items-center">
-      <img
-        src={experience.img}
-        alt={experience.title}
-        className="
-        hidden md:block
-        w-auto 
-        h-16 sm:h-18 md:h-24 lg:h-28 xl:h-32 
-        rounded-full
-        justify-end
-        absolute right-0  
-       mr-2"
-      />
-    </div> */}
     <h3 className="text-2xl font-bold text-darkDesert">{experience.title}</h3>
     <p className="text-xl text-darkDesert italic mb-2">{experience.company}</p>
     <div className="flex justify-between items-center">
@@ -79,8 +61,33 @@ const NonDevExperienceCard = ({ experience, onClick }) => (
   </VerticalTimelineElement>
 );
 
-const Experience = () => {
+const Experience = ({ language }) => {
   const [modalContent, setModalContent] = useState(null);
+  const [jobExperiences, setJobExperiences] = useState([]);
+  const [nonDevExperiences, setNonDevExperiences] = useState([]);
+
+  // Translations
+  const translations = {
+    en: {
+      workExperience: "Work Experience",
+      educationExperience: "Education Experience",
+    },
+    th: {
+      workExperience: "ประสบการณ์การทำงาน",
+      educationExperience: "ประสบการณ์การศึกษา",
+    }
+  };
+
+  useEffect(() => {
+    // Update job experiences based on language
+    if (language === "en") {
+      setJobExperiences(jobExperiencesEn);
+      setNonDevExperiences(nonDevExperiencesEn);
+    } else if (language === "th") {
+      setJobExperiences(jobExperiencesTh);
+      setNonDevExperiences(nonDevExperiencesTh);
+    }
+  }, [language]);
 
   return (
     <div
@@ -88,20 +95,20 @@ const Experience = () => {
       className="bg-lightDesert p-8 rounded-lg shadow-lg w-full mx-auto mt-12"
     >
       <h2 className="text-4xl font-bold text-darkDesert mb-4 text-center">
-       Work Experience
+        {translations[language].workExperience}
       </h2>
       <VerticalTimeline>
         {jobExperiences.map((experience, index) => (
           <JobExperienceCard 
-          key={index} 
-          experience={experience}  
-          onClick={() => setModalContent(experience)}
+            key={index} 
+            experience={experience}  
+            onClick={() => setModalContent(experience)}
           />
         ))}
       </VerticalTimeline>
 
       <h2 className="text-4xl font-bold text-darkDesert mt-6 mb-4 text-center">
-      Education Experience
+        {translations[language].educationExperience}
       </h2>
       <VerticalTimeline>
         {nonDevExperiences.map((experience) => (

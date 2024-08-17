@@ -1,15 +1,20 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 
-function Type() {
+function Type({ language }) {
+  const strings = {
+    en: ["I'm Rungchukiat Klangkeaw"],
+    th: ["ผม รุ่งชูเกียรติ คลังแก้ว"]
+  };
+
   return (
     <Typewriter
       options={{
-        strings: ["I'm Rungchukiat Klangkeaw"],
+        strings: strings[language], 
         autoStart: true,
-        loop: false,  // Disable looping
-        delay: 50,    // Speed of typing
-        deleteSpeed: Infinity, // Prevent deletion by setting deleteSpeed to Infinity
+        loop: false, 
+        delay: 50,
+        deleteSpeed: Infinity,
       }}
     />
   );

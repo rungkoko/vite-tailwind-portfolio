@@ -12,10 +12,8 @@ import {
   SiVisualstudiocode,
   SiMongodb,
   SiTailwindcss,
-  SiMui,
   SiTypescript,
   SiJavascript,
-  SiYarn,
   SiVite,
   SiMysql,
 } from "react-icons/si";
@@ -38,11 +36,17 @@ const skills = [
   { id: "github", Component: DiGithubBadge },
 ];
 
-export default function Skills() {
+export default function Skills({ language }) {
   const trail = useTrail(skills.length, {
     from: { transform: "translate3d(0,-40px,0)", opacity: 0 },
     to: { transform: "translate3d(0,0px,0)", opacity: 1 },
   });
+
+  // Define translations for the section title
+  const translations = {
+    en: { my: "My", skills: "Skills" },
+    th: { skills: "ทักษะ", my: "ของฉัน" },
+  };
 
   return (
     <div
@@ -50,9 +54,19 @@ export default function Skills() {
       className="rounded-lg flex items-center justify-center pt-4"
     >
       <div className="text-center max-w-2xl w-full mx-auto">
-      <h3 className="text-4xl font-semibold md:text-center mb-10">
-      <span className="text-cyan-600">My</span> Skills
-              </h3>
+        <h3 className="text-4xl font-semibold md:text-center mb-10">
+          {language === "en" ? (
+            <>
+              <span className="text-cyan-600">My</span>{" "}
+              <span className="text-white">Skills</span>
+            </>
+          ) : (
+            <>
+              <span className="text-cyan-600">{translations.th.skills}</span>{" "}
+              <span className="text-white">{translations.th.my}</span>
+            </>
+          )}
+        </h3>
         <div className="grid grid-cols-8 gap-4 my-4 justify-items-center">
           {trail.map((props, index) => {
             const { Component } = skills[index];

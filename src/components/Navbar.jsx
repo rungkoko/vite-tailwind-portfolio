@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ language, setLanguage }) => {
   const [sticky, setSticky] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const menuLinks = [
-    { name: "HOME", link: "#home" },
-    { name: "ABOUT", link: "#about" },
-    { name: "SKILLS", link: "#skills" },
-    { name: "EXPERIENCE", link: "#experience" },
-    { name: "EDUCATION", link: "#education" },
-    { name: "CONTACT", link: "#contact" },
-  ];
+  const menuLinks = {
+    en: [
+      { name: "HOME", link: "#home" },
+      { name: "ABOUT", link: "#about" },
+      { name: "SKILLS", link: "#skills" },
+      { name: "EXPERIENCE", link: "#experience" },
+      { name: "EDUCATION", link: "#education" },
+      { name: "CONTACT", link: "#contact" },
+    ],
+    th: [
+      { name: "หน้าแรก", link: "#home" },
+      { name: "เกี่ยวกับ", link: "#about" },
+      { name: "ทักษะ", link: "#skills" },
+      { name: "ประสบการณ์", link: "#experience" },
+      { name: "การศึกษา", link: "#education" },
+      { name: "ติดต่อ", link: "#contact" },
+    ],
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +53,7 @@ const Navbar = () => {
             sticky ? "text-gray-900" : "text-white"
           }`}
         >
-          {menuLinks.map((menu, i) => (
+          {menuLinks[language].map((menu, i) => (
             <a
               key={i}
               href={menu.link}
@@ -52,6 +62,12 @@ const Navbar = () => {
               {menu.name}
             </a>
           ))}
+          <button
+            onClick={() => setLanguage(language === "en" ? "th" : "en")}
+            className="ml-4 text-cyan-600 hover:text-cyan-800"
+          >
+            {language === "en" ? "TH" : "EN"}
+          </button>
         </div>
 
         {/* Mobile Menu Icon */}
@@ -101,7 +117,7 @@ const Navbar = () => {
           } transition-transform duration-300 md:hidden`}
         >
           <ul className="flex flex-col items-start p-6 space-y-6 mt-20">
-            {menuLinks.map((menu, i) => (
+            {menuLinks[language].map((menu, i) => (
               <li key={i}>
                 <a
                   href={menu.link}
@@ -112,6 +128,17 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
+            <li>
+              <button
+                onClick={() => {
+                  setLanguage(language === "en" ? "th" : "en");
+                  setOpen(false);
+                }}
+                className="text-cyan-600 hover:text-cyan-800"
+              >
+                {language === "en" ? "TH" : "EN"}
+              </button>
+            </li>
           </ul>
         </div>
       </div>
