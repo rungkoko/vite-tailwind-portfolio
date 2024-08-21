@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaGithub, FaExternalLinkAlt, FaTimesCircle } from "react-icons/fa";
+import { FaExternalLinkAlt, FaTimesCircle } from "react-icons/fa";
 import Modal from "react-modal";
 import { useTrail, useSpring, animated } from "react-spring";
 import projects from "../constants/projects.json";
@@ -11,7 +11,7 @@ const ProjectModal = ({ project, isOpen, closeModal }) => (
     className="fixed inset-0 z-50 flex items-center justify-center p-6"
     overlayClassName="bg-black bg-opacity-50 transition-opacity duration-500 ease-out"
   >
-    <div className="bg-white p-6 rounded-lg shadow-2xl transform transition-transform duration-500 ease-out space-y-4 sm:space-y-0  max-w-md max-h-[80vh] overflow-y-auto">
+    <div className="bg-[#2e2e2e] p-6 rounded-lg shadow-2xl transform transition-transform duration-500 ease-out space-y-4 sm:space-y-0  max-w-md max-h-[80vh] overflow-y-auto">
       <button
         onClick={closeModal}
         className="absolute top-2 right-2 text-darkDesert hover:text-goldDesert"
@@ -26,16 +26,14 @@ const ProjectModal = ({ project, isOpen, closeModal }) => (
         <p className="text-darkDesert mb-4">{project.description}</p>
         <p className="text-darkDesert font-bold mb-4">{project.date}</p>
         <div className="flex justify-between items-center">
-          {project.github ? (
           <a
-          href={project.deployed}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mx-2 text-darkDesert hover:text-goldDesert transition-colors duration-300"
-        >
-          <FaExternalLinkAlt size={32} />
-        </a>
-          ) : null}
+            href={project.deployed}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mx-2 text-darkDesert hover:text-goldDesert transition-colors duration-300"
+          >
+            <FaExternalLinkAlt size={32} />
+          </a>
         </div>
       </div>
     </div>
@@ -64,7 +62,7 @@ const ProjectCard = ({ project, openModal }) => {
           className="w-full h-64 object-cover rounded-lg shadow-md"
         />
         <div className="absolute inset-0 bg-darkDesert bg-opacity-70 flex items-center justify-center rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-all duration-500">
-          <h1 className="text-lightDesert text-center text-sm md:text-2xl lg:text-3xl truncate w-11/12 md:w-10/12 font-bold">
+          <h1 className="text-[#646464] text-center text-sm md:text-2xl lg:text-3xl truncate w-11/12 md:w-10/12 font-bold">
             {project.title}
           </h1>
         </div>
