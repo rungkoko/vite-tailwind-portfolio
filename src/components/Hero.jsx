@@ -19,7 +19,7 @@ const Hero = ({ language }) => {
         <div className="relative flex flex-col items-center md:items-start">
           <h1 className="md:text-4xl text-2xl md:leading-normal leading-10 text-white font-bold pt-[60px] md:pt-0">
             <span className="text-cyan-600 md:text-6xl text-5xl block">
-              {language === 'en' ? 'Hello!' : 'สวัสดี!'}
+              {language === 'en' ? 'Hello!' : 'สวัสดีครับ!'}
               <br />
             </span>
             <span className="block"><Type language={language} /><br /></span>

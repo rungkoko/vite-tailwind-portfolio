@@ -12,10 +12,10 @@ import {
   SiVisualstudiocode,
   SiMongodb,
   SiTailwindcss,
-  SiTypescript,
   SiJavascript,
   SiVite,
   SiMysql,
+  SiWordpress,
 } from "react-icons/si";
 import { DiGithubBadge } from "react-icons/di";
 
@@ -27,6 +27,7 @@ const skills = [
   { id: "php", Component: FaPhp },
   { id: "react", Component: FaReact },
   { id: "tailwind", Component: SiTailwindcss },
+  { id: "wordpress", Component: SiWordpress },
   { id: "node", Component: FaNodeJs },
   { id: "sql", Component: SiMysql },
   { id: "npm", Component: FaNpm },
